@@ -439,6 +439,9 @@ export interface ChartingLibraryWidgetOptions {
 	compare_symbols?: CompareSymbol[];
 	custom_indicators_getter?: (PineJS: PineJS) => Promise<readonly CustomIndicator[]>;
 }
+export interface ClientSnapshotOptions {
+	backgroundColor?: string;
+}
 export interface CompareSymbol {
 	symbol: string;
 	title: string;
@@ -899,7 +902,7 @@ export interface IChartingLibraryWidget {
 	changeTheme(themeName: ThemeName, options?: ChangeThemeOptions): void;
 	getTheme(): ThemeName;
 	takeScreenshot(): void;
-	takeClientScreenshot(): Promise<HTMLCanvasElement>;
+	takeClientScreenshot(options?: Partial<ClientSnapshotOptions>): Promise<HTMLCanvasElement>;
 	lockAllDrawingTools(): IWatchedValue<boolean>;
 	hideAllDrawingTools(): IWatchedValue<boolean>;
 	magnetEnabled(): IWatchedValue<boolean>;
