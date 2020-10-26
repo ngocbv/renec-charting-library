@@ -859,6 +859,7 @@ export interface IChartWidgetApi {
 	shapesGroupController(): IShapesGroupControllerApi;
 	barTimeToEndOfPeriod(unixTime: number): number;
 	endOfPeriodToBarTime(unixTime: number): number;
+	getTimeScale(): ITimeScaleApi;
 }
 export interface IChartingLibraryWidget {
 	headerReady(): Promise<void>;
@@ -1222,6 +1223,9 @@ export interface ISubscription<TFunc extends Function> {
 	subscribe(obj: object | null, member: TFunc, singleshot?: boolean): void;
 	unsubscribe(obj: object | null, member: TFunc): void;
 	unsubscribeAll(obj: object | null): void;
+}
+export interface ITimeScaleApi {
+	coordinateToTime(x: number): number | null;
 }
 export interface IWatchListApi {
 	defaultList(): string[];
