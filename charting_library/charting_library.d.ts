@@ -977,6 +977,10 @@ export interface IExternalSaveLoadAdapter {
 	removeStudyTemplate(studyTemplateInfo: StudyTemplateMetaInfo): Promise<void>;
 	saveStudyTemplate(studyTemplateData: StudyTemplateData): Promise<void>;
 	getStudyTemplateContent(studyTemplateInfo: StudyTemplateMetaInfo): Promise<string>;
+	getDrawingTemplates(toolName: string): Promise<string[]>;
+	loadDrawingTemplate(toolName: string, templateName: string): Promise<string>;
+	removeDrawingTemplate(toolName: string, templateName: string): Promise<void>;
+	saveDrawingTemplate(toolName: string, templateName: string, content: string): Promise<void>;
 }
 export interface IFormatter<T> {
 	format(value?: T): string;
