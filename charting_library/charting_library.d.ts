@@ -119,6 +119,7 @@ export declare type InputFieldValidator = (value: any) => InputFieldValidatorRes
 export declare type InputFieldValidatorResult = PositiveBaseInputFieldValidatorResult | NegativeBaseInputFieldValidatorResult;
 export declare type LanguageCode = "ar" | "zh" | "cs" | "da_DK" | "nl_NL" | "en" | "et_EE" | "fr" | "de" | "el" | "he_IL" | "hu_HU" | "id_ID" | "it" | "ja" | "ko" | "fa" | "pl" | "pt" | "ro" | "ru" | "sk_SK" | "es" | "sv" | "th" | "tr" | "vi";
 export declare type LayoutType = SingleChartLayoutType | MultipleChartsLayoutType;
+export declare type LegendMode = "horizontal" | "vertical";
 export declare type MarkConstColors = "red" | "green" | "blue" | "yellow";
 export declare type MultipleChartsLayoutType = "2h" | "2v" | "2-1" | "3s" | "3h" | "3v" | "4" | "6" | "8" | "1-2" | "3r" | "4h" | "4v" | "4s" | "1-3" | "2-2" | "1-4" | "5s" | "6c" | "8c";
 /**
@@ -440,7 +441,11 @@ export interface ChartingLibraryWidgetOptions {
 	custom_indicators_getter?: (PineJS: PineJS) => Promise<readonly CustomIndicator[]>;
 }
 export interface ClientSnapshotOptions {
-	backgroundColor?: string;
+	backgroundColor: string;
+	font: string;
+	fontSize: number;
+	legendMode: LegendMode;
+	hideResolution: boolean;
 }
 export interface CompareSymbol {
 	symbol: string;
