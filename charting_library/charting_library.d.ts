@@ -1534,6 +1534,10 @@ export interface PlacedOrder extends CustomFields {
 	stopPrice?: number;
 	message?: OrderOrPositionMessage;
 }
+export interface PlusClickParams extends MouseEventParams {
+	symbol: string | null;
+	price: number;
+}
 export interface PnFStylePreferences {
 	upColor: string;
 	downColor: string;
@@ -1734,6 +1738,7 @@ export interface SubscribeEventsMap {
 	onAutoSaveNeeded: EmptyCallback;
 	onScreenshotReady: (url: string) => void;
 	onMarkClick: (markId: Mark["id"]) => void;
+	onPlusClick: (params: PlusClickParams) => void;
 	onTimescaleMarkClick: (markId: TimescaleMark["id"]) => void;
 	onSelectedLineToolChanged: EmptyCallback;
 	layout_about_to_be_changed: (newLayoutType: LayoutType) => void;
