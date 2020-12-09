@@ -865,6 +865,9 @@ export interface IChartWidgetApi {
 	barTimeToEndOfPeriod(unixTime: number): number;
 	endOfPeriodToBarTime(unixTime: number): number;
 	getTimeScale(): ITimeScaleApi;
+	isSelectBarRequested(): boolean;
+	requestSelectBar(): Promise<number>;
+	cancelSelectBar(): void;
 }
 export interface IChartingLibraryWidget {
 	headerReady(): Promise<void>;
