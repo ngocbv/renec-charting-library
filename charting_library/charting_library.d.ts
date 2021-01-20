@@ -412,6 +412,7 @@ export interface ChartingLibraryWidgetOptions {
 	locale: LanguageCode;
 	numeric_formatting?: NumericFormattingParams;
 	saved_data?: object;
+	saved_data_meta_info?: SavedStateMetaInfo;
 	studies_access?: AccessList;
 	study_count_limit?: number;
 	symbol_search_request_delay?: number;
@@ -884,7 +885,7 @@ export interface IChartingLibraryWidget {
 	selectLineTool(linetool: SupportedLineTools): void;
 	selectedLineTool(): SupportedLineTools;
 	save(callback: (state: object) => void): void;
-	load(state: object): void;
+	load(state: object, extendedData?: SavedStateMetaInfo): void;
 	getSavedCharts(callback: (chartRecords: SaveLoadChartRecord[]) => void): void;
 	loadChartFromServer(chartRecord: SaveLoadChartRecord): void;
 	saveChartToServer(onComplete?: EmptyCallback, onFail?: EmptyCallback, options?: SaveChartToServerOptions): void;
@@ -1641,6 +1642,11 @@ export interface SaveLoadChartRecord {
 	modified_iso: number;
 	short_symbol: string;
 	interval: ResolutionString;
+}
+export interface SavedStateMetaInfo {
+	uid: number;
+	name: string;
+	description: string;
 }
 export interface SearchSymbolResultItem {
 	symbol: string;
