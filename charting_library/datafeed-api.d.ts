@@ -136,6 +136,7 @@ export interface LibrarySymbolInfo {
 	 * @example "1700-0200"
 	 */
 	session: string;
+	session_display?: string;
 	/**
 	 * @example "20181105,20181107,20181112"
 	 */
