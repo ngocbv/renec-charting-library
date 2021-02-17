@@ -1910,6 +1910,7 @@ export interface WidgetBarParams {
 	details?: boolean;
 	watchlist?: boolean;
 	news?: boolean;
+	datawindow?: boolean;
 	watchlist_settings?: {
 		default_symbols: string[];
 		readonly?: boolean;
