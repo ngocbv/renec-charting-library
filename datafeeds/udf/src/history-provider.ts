@@ -2,6 +2,7 @@ import {
 	Bar,
 	HistoryMetadata,
 	LibrarySymbolInfo,
+	PeriodParams,
 } from '../../../charting_library/datafeed-api';
 
 import {
@@ -53,12 +54,13 @@ export class HistoryProvider {
 		this._requester = requester;
 	}
 
-	public getBars(symbolInfo: LibrarySymbolInfo, resolution: string, rangeStartDate: number, rangeEndDate: number): Promise<GetBarsResult> {
+	public getBars(symbolInfo: LibrarySymbolInfo, resolution: string, periodParams: PeriodParams): Promise<GetBarsResult> {
 		const requestParams: RequestParams = {
 			symbol: symbolInfo.ticker || '',
 			resolution: resolution,
-			from: rangeStartDate,
-			to: rangeEndDate,
+			from: periodParams.from,
+			to: periodParams.to,
+			countback: periodParams.countBack,
 		};
 
 		if (symbolInfo.currency_code !== undefined) {
