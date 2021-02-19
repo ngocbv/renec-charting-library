@@ -18,7 +18,6 @@ import {
 	SubscribeBarsCallback,
 	TimescaleMark,
 	SymbolResolveExtension,
-	PeriodParams,
 } from '../../../charting_library/datafeed-api';
 
 import {
@@ -31,6 +30,7 @@ import {
 import {
 	GetBarsResult,
 	HistoryProvider,
+	PeriodParamsWithOptionalCountback,
 } from './history-provider';
 
 import { IQuotesProvider } from './iquotes-provider';
@@ -298,7 +298,7 @@ export class UDFCompatibleDatafeedBase implements IExternalDatafeed, IDatafeedQu
 		}
 	}
 
-	public getBars(symbolInfo: LibrarySymbolInfo, resolution: ResolutionString, periodParams: PeriodParams, onResult: HistoryCallback, onError: ErrorCallback): void {
+	public getBars(symbolInfo: LibrarySymbolInfo, resolution: ResolutionString, periodParams: PeriodParamsWithOptionalCountback, onResult: HistoryCallback, onError: ErrorCallback): void {
 		this._historyProvider.getBars(symbolInfo, resolution, periodParams)
 			.then((result: GetBarsResult) => {
 				onResult(result.bars, result.meta);

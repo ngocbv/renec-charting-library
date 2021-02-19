@@ -11,8 +11,10 @@ var HistoryProvider = /** @class */ (function () {
             resolution: resolution,
             from: periodParams.from,
             to: periodParams.to,
-            countback: periodParams.countBack,
         };
+        if (periodParams.countBack !== undefined) {
+            requestParams.countback = periodParams.countBack;
+        }
         if (symbolInfo.currency_code !== undefined) {
             requestParams.currencyCode = symbolInfo.currency_code;
         }
