@@ -411,7 +411,9 @@ export interface ChartingLibraryWidgetConstructor {
 	new (options: ChartingLibraryWidgetOptions | TradingTerminalWidgetOptions): IChartingLibraryWidget;
 }
 export interface ChartingLibraryWidgetOptions {
+	/** @deprecated */
 	container_id: string;
+	container: HTMLElement | string;
 	datafeed: IBasicDataFeed | (IBasicDataFeed & IDatafeedQuotesApi);
 	interval: ResolutionString;
 	symbol?: string;
@@ -502,9 +504,6 @@ export interface CreateStudyOptions {
 export interface CreateStudyTemplateOptions {
 	saveSymbol?: boolean;
 	saveInterval?: boolean;
-}
-export interface CreateTradingPrimitiveOptions {
-	disableUndo?: boolean;
 }
 export interface CrossHairMovedEventParams {
 	time: number;
@@ -828,6 +827,10 @@ export interface IChartWidgetApi {
 	setChartType(type: SeriesStyle): void;
 	getAllShapes(): EntityInfo[];
 	getAllStudies(): EntityInfo[];
+	getPriceToBarRatio(): number | null;
+	setPriceToBarRatio(ratio: number, options?: UndoOptions): void;
+	isPriceToBarRatioLocked(): boolean;
+	setPriceToBarRatioLocked(value: boolean, options?: UndoOptions): void;
 	availableZOrderOperations(sources: readonly EntityId[]): AvailableZOrderOperations;
 	sendToBack(entities: readonly EntityId[]): void;
 	bringToFront(sources: readonly EntityId[]): void;
@@ -843,16 +846,16 @@ export interface IChartWidgetApi {
 	createShape<TOverrides extends object>(point: ShapePoint, options: CreateShapeOptions<TOverrides>): EntityId | null;
 	createMultipointShape<TOverrides extends object>(points: ShapePoint[], options: CreateMultipointShapeOptions<TOverrides>): EntityId | null;
 	getShapeById(entityId: EntityId): ILineDataSourceApi;
-	removeEntity(entityId: EntityId, options?: RemoveEntityOptions): void;
+	removeEntity(entityId: EntityId, options?: UndoOptions): void;
 	removeAllShapes(): void;
 	removeAllStudies(): void;
 	selection(): ISelectionApi;
 	showPropertiesDialog(studyId: EntityId): void;
 	createStudyTemplate(options: CreateStudyTemplateOptions): object;
 	applyStudyTemplate(template: object): void;
-	createOrderLine(options?: CreateTradingPrimitiveOptions): IOrderLineAdapter;
-	createPositionLine(options?: CreateTradingPrimitiveOptions): IPositionLineAdapter;
-	createExecutionShape(options?: CreateTradingPrimitiveOptions): IExecutionLineAdapter;
+	createOrderLine(options?: UndoOptions): IOrderLineAdapter;
+	createPositionLine(options?: UndoOptions): IPositionLineAdapter;
+	createExecutionShape(options?: UndoOptions): IExecutionLineAdapter;
 	symbol(): string;
 	symbolExt(): SymbolExt;
 	resolution(): ResolutionString;
@@ -1625,9 +1628,6 @@ export interface QuotesBase {
 	pricescale: number;
 	description: string;
 }
-export interface RemoveEntityOptions {
-	disableUndo?: boolean;
-}
 export interface RenkoStylePreferences {
 	upColor: string;
 	downColor: string;
@@ -1904,11 +1904,14 @@ export interface TradingTerminalWidgetOptions extends ChartingLibraryWidgetOptio
 	brokerFactory?(host: IBrokerConnectionAdapterHost): IBrokerWithoutRealtime | IBrokerTerminal;
 	broker_factory?(host: IBrokerConnectionAdapterHost): IBrokerWithoutRealtime | IBrokerTerminal;
 }
+export interface UndoOptions {
+	disableUndo?: boolean;
+}
 export interface UndoRedoState {
-	enableUndo: boolean;
-	undoText: string | undefined;
-	enableRedo: boolean;
-	redoText: string | undefined;
+	readonly enableUndo: boolean;
+	readonly undoText: string | undefined;
+	readonly enableRedo: boolean;
+	readonly redoText: string | undefined;
 }
 export interface VisiblePriceRange {
 	from: number;
