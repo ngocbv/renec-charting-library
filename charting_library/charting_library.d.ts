@@ -831,6 +831,8 @@ export interface IChartWidgetApi {
 	setPriceToBarRatio(ratio: number, options?: UndoOptions): void;
 	isPriceToBarRatioLocked(): boolean;
 	setPriceToBarRatioLocked(value: boolean, options?: UndoOptions): void;
+	getAllPanesHeight(): number[];
+	setAllPanesHeight(heights: readonly number[]): void;
 	availableZOrderOperations(sources: readonly EntityId[]): AvailableZOrderOperations;
 	sendToBack(entities: readonly EntityId[]): void;
 	bringToFront(sources: readonly EntityId[]): void;
