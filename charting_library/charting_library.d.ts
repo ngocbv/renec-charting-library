@@ -957,6 +957,7 @@ export interface IDatafeedChartApi {
 	unsubscribeBars(listenerGuid: string): void;
 	subscribeDepth?(symbol: string, callback: DomeCallback): string;
 	unsubscribeDepth?(subscriberUID: string): void;
+	getVolumeProfileResolutionForPeriod?(currentResolution: ResolutionString, from: number, to: number, symbolInfo: LibrarySymbolInfo): ResolutionString;
 }
 export interface IDatafeedQuotesApi {
 	getQuotes(symbols: string[], onDataCallback: QuotesCallback, onErrorCallback: (msg: string) => void): void;
