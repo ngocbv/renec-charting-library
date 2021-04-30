@@ -412,7 +412,7 @@ export interface ChartingLibraryWidgetConstructor {
 }
 export interface ChartingLibraryWidgetOptions {
 	/** @deprecated */
-	container_id: string;
+	container_id?: string;
 	container: HTMLElement | string;
 	datafeed: IBasicDataFeed | (IBasicDataFeed & IDatafeedQuotesApi);
 	interval: ResolutionString;
