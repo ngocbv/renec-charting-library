@@ -110,7 +110,7 @@ export declare type EditObjectDialogObjectType = "mainSeries" | "drawing" | "stu
 export declare type EmptyCallback = () => void;
 export declare type EntityId = Nominal<string, "EntityId">;
 export declare type ErrorCallback = (reason: string) => void;
-export declare type FieldDescriptor = TimeFieldDescriptor | SeriesFieldDescriptor | StudyFieldDescriptor;
+export declare type FieldDescriptor = TimeFieldDescriptor | UserTimeFieldDescriptor | SeriesFieldDescriptor | StudyFieldDescriptor;
 export declare type GetMarksCallback<T> = (marks: T[]) => void;
 export declare type GroupLockState = "Locked" | "Unlocked" | "Partial";
 export declare type GroupVisibilityState = "Visible" | "Invisible" | "Partial";
@@ -643,6 +643,7 @@ export interface ExportDataOptions {
 	from?: number;
 	to?: number;
 	includeTime?: boolean;
+	includeUserTime?: boolean;
 	includeSeries?: boolean;
 	includedStudies: readonly string[] | "all";
 }
@@ -1915,6 +1916,9 @@ export interface UndoRedoState {
 	readonly undoText: string | undefined;
 	readonly enableRedo: boolean;
 	readonly redoText: string | undefined;
+}
+export interface UserTimeFieldDescriptor {
+	type: "userTime";
 }
 export interface VisiblePriceRange {
 	from: number;
