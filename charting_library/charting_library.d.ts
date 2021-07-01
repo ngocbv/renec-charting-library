@@ -279,6 +279,10 @@ export interface ActionDescription {
 export interface ActionDescriptionWithCallback extends ActionDescription {
 	action: (a?: ActionDescription) => void;
 }
+export interface AdditionalSymbolInfoField {
+	title: string;
+	propertyName: string;
+}
 export interface AreaStylePreferences {
 	color1: string;
 	color2: string;
@@ -487,6 +491,7 @@ export interface ChartingLibraryWidgetOptions {
 	theme?: ThemeName;
 	compare_symbols?: CompareSymbol[];
 	custom_indicators_getter?: (PineJS: PineJS) => Promise<readonly CustomIndicator[]>;
+	additional_symbol_info_fields?: AdditionalSymbolInfoField[];
 }
 export interface ClientSnapshotOptions {
 	backgroundColor: string;
