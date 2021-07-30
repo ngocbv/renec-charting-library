@@ -141,6 +141,7 @@ export declare type FieldDescriptor = TimeFieldDescriptor | UserTimeFieldDescrip
 export declare type GetMarksCallback<T> = (marks: T[]) => void;
 export declare type GroupLockState = "Locked" | "Unlocked" | "Partial";
 export declare type GroupVisibilityState = "Visible" | "Invisible" | "Partial";
+export declare type HeaderWidgetButtonsMode = "fullsize" | "compact" | "adaptive";
 export declare type HistoryCallback = (bars: Bar[], meta?: HistoryMetadata) => void;
 export declare type IBasicDataFeed = IDatafeedChartApi & IExternalDatafeed;
 export declare type InputFieldValidator = (value: any) => InputFieldValidatorResult;
@@ -492,6 +493,7 @@ export interface ChartingLibraryWidgetOptions {
 	compare_symbols?: CompareSymbol[];
 	custom_indicators_getter?: (PineJS: PineJS) => Promise<readonly CustomIndicator[]>;
 	additional_symbol_info_fields?: AdditionalSymbolInfoField[];
+	header_widget_buttons_mode?: HeaderWidgetButtonsMode;
 }
 export interface ClientSnapshotOptions {
 	backgroundColor: string;
