@@ -494,6 +494,7 @@ export interface ChartingLibraryWidgetOptions {
 	custom_indicators_getter?: (PineJS: PineJS) => Promise<readonly CustomIndicator[]>;
 	additional_symbol_info_fields?: AdditionalSymbolInfoField[];
 	header_widget_buttons_mode?: HeaderWidgetButtonsMode;
+	time_scale?: TimeScaleOptions;
 }
 export interface ClientSnapshotOptions {
 	backgroundColor: string;
@@ -1899,6 +1900,9 @@ export interface TimeFrameTimeRange {
 }
 export interface TimePoint {
 	time: number;
+}
+export interface TimeScaleOptions {
+	min_bar_spacing?: number;
 }
 export interface TimescaleMark {
 	id: string | number;
