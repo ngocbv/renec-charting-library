@@ -1733,6 +1733,7 @@ export interface SeriesFieldDescriptor {
 	type: "value";
 	sourceType: "series";
 	plotTitle: string;
+	sourceTitle: string;
 }
 export interface SeriesPreferencesMap {
 	[ChartStyle.Bar]: BarStylePreferences;
