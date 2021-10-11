@@ -914,7 +914,7 @@ export interface IChartWidgetApi {
 	setTimezone(timezone: "exchange" | Timezone): void;
 	getTimezone(): "exchange" | Timezone;
 	getPanes(): IPaneApi[];
-	exportData(options?: ExportDataOptions): Promise<ExportedData>;
+	exportData(options?: Partial<ExportDataOptions>): Promise<ExportedData>;
 	canZoomOut(): boolean;
 	zoomOut(): void;
 	setZoomEnabled(enabled: boolean): void;
