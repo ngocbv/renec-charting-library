@@ -148,7 +148,7 @@ export declare type IBasicDataFeed = IDatafeedChartApi & IExternalDatafeed;
 export declare type INumberFormatter = IFormatter<number>;
 export declare type InputFieldValidator = (value: any) => InputFieldValidatorResult;
 export declare type InputFieldValidatorResult = PositiveBaseInputFieldValidatorResult | NegativeBaseInputFieldValidatorResult;
-export declare type LanguageCode = "ar" | "zh" | "cs" | "da_DK" | "nl_NL" | "en" | "et_EE" | "fr" | "de" | "el" | "he_IL" | "hu_HU" | "id_ID" | "it" | "ja" | "ko" | "fa" | "pl" | "pt" | "ro" | "ru" | "sk_SK" | "es" | "sv" | "th" | "tr" | "vi";
+export declare type LanguageCode = "ar" | "zh" | "cs" | "da_DK" | "nl_NL" | "en" | "et_EE" | "fr" | "de" | "el" | "he_IL" | "hu_HU" | "id_ID" | "it" | "ja" | "ko" | "fa" | "pl" | "pt" | "ro" | "ru" | "sk_SK" | "es" | "sv" | "th" | "tr" | "vi" | "no" | "ms_MY" | "zh_TW";
 export declare type LayoutType = SingleChartLayoutType | MultipleChartsLayoutType;
 export declare type LegendMode = "horizontal" | "vertical";
 export declare type MarkConstColors = "red" | "green" | "blue" | "yellow";
@@ -1208,7 +1208,7 @@ export interface IPositionLineAdapter {
 	getCloseButtonIconColor(): string;
 	setCloseButtonIconColor(value: string): this;
 }
-export interface IPriceFormatter extends INumberFormatter {
+export interface IPriceFormatter extends ISymbolValueFormatter {
 	format(price: number, signPositive?: boolean, tailSize?: number, signNegative?: boolean, useRtlFormat?: boolean): string;
 }
 export interface IPriceScaleApi {
@@ -1299,6 +1299,9 @@ export interface ISubscription<TFunc extends Function> {
 	subscribe(obj: object | null, member: TFunc, singleshot?: boolean): void;
 	unsubscribe(obj: object | null, member: TFunc): void;
 	unsubscribeAll(obj: object | null): void;
+}
+export interface ISymbolValueFormatter {
+	format(price: number, signPositive?: boolean): string;
 }
 export interface ITimeScaleApi {
 	coordinateToTime(x: number): number | null;
