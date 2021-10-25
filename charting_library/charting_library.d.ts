@@ -679,11 +679,13 @@ export interface ExportDataOptions {
 	includeTime?: boolean;
 	includeUserTime?: boolean;
 	includeSeries?: boolean;
+	includeDisplayedValues?: boolean;
 	includedStudies: readonly string[] | "all";
 }
 export interface ExportedData {
 	schema: FieldDescriptor[];
 	data: Float64Array[];
+	displayedData: string[][];
 }
 export interface Favorites {
 	intervals: ResolutionString[];
