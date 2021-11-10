@@ -649,6 +649,17 @@ export interface DialogParams<CallbackType> {
 	body: string;
 	callback: CallbackType;
 }
+export interface DropdownItem {
+	title: string;
+	onSelect: () => void;
+}
+export interface DropdownParams {
+	title: string;
+	items: DropdownItem[];
+	tooltip?: string;
+	icon?: string;
+	align?: "right" | "left";
+}
 export interface EditObjectDialogEventParams {
 	objectType: EditObjectDialogObjectType;
 	scriptTitle: string;
@@ -951,6 +962,7 @@ export interface IChartingLibraryWidget {
 	removeChartFromServer(chartId: string, onCompleteCallback: EmptyCallback): void;
 	onContextMenu(callback: (unixTime: number, price: number) => ContextMenuItem[]): void;
 	createButton(options?: CreateButtonOptions): HTMLElement;
+	createDropdown(params: DropdownParams): void;
 	showNoticeDialog(params: DialogParams<() => void>): void;
 	showConfirmDialog(params: DialogParams<(confirmed: boolean) => void>): void;
 	showLoadChartDialog(): void;
