@@ -944,7 +944,7 @@ export interface IChartingLibraryWidget {
 	headerReady(): Promise<void>;
 	onChartReady(callback: EmptyCallback): void;
 	onGrayedObjectClicked(callback: (obj: GrayedObject) => void): void;
-	onShortcut(shortCut: string, callback: EmptyCallback): void;
+	onShortcut(shortCut: string | number | (string | number)[], callback: EmptyCallback): void;
 	subscribe<EventName extends keyof SubscribeEventsMap>(event: EventName, callback: SubscribeEventsMap[EventName]): void;
 	unsubscribe<EventName extends keyof SubscribeEventsMap>(event: EventName, callback: SubscribeEventsMap[EventName]): void;
 	chart(index?: number): IChartWidgetApi;
