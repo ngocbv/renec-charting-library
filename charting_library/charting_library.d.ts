@@ -1308,6 +1308,8 @@ export interface IStudyApi {
 	sendToBack(): void;
 	applyOverrides<TOverrides extends StudyOverrides>(overrides: TOverrides): void;
 	applyToEntireLayout(): void;
+	onDataLoaded(): ISubscription<() => void>;
+	onStudyError(): ISubscription<() => void>;
 }
 export interface ISubscription<TFunc extends Function> {
 	subscribe(obj: object | null, member: TFunc, singleshot?: boolean): void;
