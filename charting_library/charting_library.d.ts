@@ -981,7 +981,7 @@ export interface IChartingLibraryWidget {
 	layout(): LayoutType;
 	setLayout(layout: LayoutType): void;
 	layoutName(): string;
-	changeTheme(themeName: ThemeName, options?: ChangeThemeOptions): void;
+	changeTheme(themeName: ThemeName, options?: ChangeThemeOptions): Promise<void>;
 	getTheme(): ThemeName;
 	takeScreenshot(): void;
 	takeClientScreenshot(options?: Partial<ClientSnapshotOptions>): Promise<HTMLCanvasElement>;
@@ -1321,6 +1321,14 @@ export interface ISymbolValueFormatter {
 }
 export interface ITimeScaleApi {
 	coordinateToTime(x: number): number | null;
+	/**
+	 * This is to detect when the chart has been zoomed in/out
+	 */
+	barSpacingChanged(): ISubscription<(newBarSpacing: number) => void>;
+	/**
+	 * This is to detect when the chart has been scrolled left/right
+	 */
+	rightOffsetChanged(): ISubscription<(rightOffset: number) => void>;
 }
 export interface IWatchListApi {
 	defaultList(): string[];
