@@ -974,7 +974,7 @@ export interface IChartingLibraryWidget {
 	addCustomCSSFile(url: string): void;
 	applyOverrides<TOverrides extends StudyOverrides>(overrides: TOverrides): void;
 	applyStudiesOverrides(overrides: object): void;
-	watchList(): IWatchListApi;
+	watchList(): Promise<IWatchListApi>;
 	news(): Promise<INewsApi>;
 	activeChart(): IChartWidgetApi;
 	chartsCount(): number;
