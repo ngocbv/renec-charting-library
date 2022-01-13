@@ -196,6 +196,27 @@ export declare type SupportedLineTools = "text" | "anchored_text" | "note" | "an
 export declare type SymbolType = "stock" | "index" | "forex" | "futures" | "bitcoin" | "crypto" | "undefined" | "expression" | "spread" | "cfd" | "economic" | "equity" | "dr" | "bond" | "right" | "warrant" | "fund" | "structured";
 export declare type TextInputFieldValidator = (value: string) => InputFieldValidatorResult;
 export declare type ThemeName = "Light" | "Dark";
+export declare type TickMarkType = 
+/**
+ * The start of the year (e.g. it's the first tick mark in a year).
+ */
+"Year"
+/**
+ * The start of the month (e.g. it's the first tick mark in a month).
+ */
+ | "Month"
+/**
+ * A day of the month.
+ */
+ | "DayOfMonth"
+/**
+ * A time without seconds.
+ */
+ | "Time"
+/**
+ * A time with seconds.
+ */
+ | "TimeWithSeconds";
 export declare type TimeFrameValue = TimeFramePeriodBack | TimeFrameTimeRange;
 export declare type Timezone = "Etc/UTC" | CustomTimezones;
 export declare type TradableSolutions = ChangeAccountSolution | ChangeSymbolSolution;
@@ -576,6 +597,7 @@ export interface CustomFormatter {
 export interface CustomFormatters {
 	timeFormatter: CustomFormatter;
 	dateFormatter: CustomFormatter;
+	tickMarkFormatter?: (date: Date, tickMarkType: TickMarkType) => string;
 }
 export interface CustomIndicator {
 	readonly name: string;
