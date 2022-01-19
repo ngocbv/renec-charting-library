@@ -425,6 +425,8 @@ export interface BrokerConfigFlags {
 export interface BrokerCustomUI {
 	showOrderDialog?: (order: OrderTemplate | Order, focus?: OrderTicketFocusControl) => Promise<boolean>;
 	showPositionDialog?: (position: Position | Trade, brackets: Brackets, focus?: OrderTicketFocusControl) => Promise<boolean>;
+	showCancelOrderDialog?: (order: Order) => Promise<boolean>;
+	showClosePositionDialog?: (position: Position) => Promise<boolean>;
 }
 export interface CandleStylePreferences {
 	upColor: string;
