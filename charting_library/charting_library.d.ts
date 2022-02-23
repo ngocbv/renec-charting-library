@@ -133,6 +133,7 @@ export declare type ChartActionId = "chartProperties" | "compareOrAdd" | "scales
 export declare type Direction = "buy" | "sell";
 export declare type DomeCallback = (data: DOMData) => void;
 export declare type DrawingEventType = "click" | "move" | "remove" | "hide" | "show";
+export declare type DropdownUpdateParams = Partial<Omit<DropdownParams, "align">>;
 export declare type EditObjectDialogObjectType = "mainSeries" | "drawing" | "study" | "other";
 export declare type EmptyCallback = () => void;
 export declare type EntityId = Nominal<string, "EntityId">;
@@ -988,7 +989,7 @@ export interface IChartingLibraryWidget {
 	removeChartFromServer(chartId: string, onCompleteCallback: EmptyCallback): void;
 	onContextMenu(callback: (unixTime: number, price: number) => ContextMenuItem[]): void;
 	createButton(options?: CreateButtonOptions): HTMLElement;
-	createDropdown(params: DropdownParams): void;
+	createDropdown(params: DropdownParams): Promise<IDropdownApi>;
 	showNoticeDialog(params: DialogParams<() => void>): void;
 	showConfirmDialog(params: DialogParams<(confirmed: boolean) => void>): void;
 	showLoadChartDialog(): void;
@@ -1048,6 +1049,10 @@ export interface IDatafeedQuotesApi {
 }
 export interface IDelegate<TFunc extends Function> extends ISubscription<TFunc> {
 	fire: TFunc;
+}
+export interface IDropdownApi {
+	applyOptions(options: DropdownUpdateParams): void;
+	remove(): void;
 }
 export interface IExecutionLineAdapter {
 	remove(): void;
