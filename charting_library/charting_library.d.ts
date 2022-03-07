@@ -998,6 +998,7 @@ export interface IChartingLibraryWidget {
 	mainSeriesPriceFormatter(): INumberFormatter;
 	getIntervals(): string[];
 	getStudiesList(): string[];
+	getStudyInputs(studyName: string): StudyInputInfo[];
 	addCustomCSSFile(url: string): void;
 	applyOverrides<TOverrides extends StudyOverrides>(overrides: TOverrides): void;
 	applyStudiesOverrides(overrides: object): void;
