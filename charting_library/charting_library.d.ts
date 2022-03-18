@@ -150,6 +150,7 @@ export declare type ActionMetaInfo = ActionDescriptionWithCallback | MenuSeparat
 export declare type AvailableSaveloadVersions = "1.0" | "1.1";
 export declare type CellAlignment = "left" | "right";
 export declare type ChartActionId = "chartProperties" | "compareOrAdd" | "scalesProperties" | "paneObjectTree" | "insertIndicator" | "symbolSearch" | "changeInterval" | "timeScaleReset" | "chartReset" | "seriesHide" | "studyHide" | "lineToggleLock" | "lineHide" | "scaleSeriesOnly" | "drawingToolbarAction" | "stayInDrawingModeAction" | "hideAllMarks" | "showCountdown" | "showSeriesLastValue" | "showSymbolLabelsAction" | "showStudyLastValue" | "showStudyPlotNamesAction" | "undo" | "redo" | "paneRemoveAllStudiesDrawingTools" | "showSymbolInfoDialog";
+export declare type CustomTranslateFunction = (key: string, options?: TranslateOptions) => string | null;
 export declare type DateFormat = keyof typeof dateFormatFunctions;
 export declare type Direction = "buy" | "sell";
 export declare type DomeCallback = (data: DOMData) => void;
@@ -214,7 +215,7 @@ export declare type StudyInputValue = string | number | boolean;
 export declare type StudyOverrideValueType = string | number | boolean;
 export declare type StudyPriceScale = "new-left" | "new-right" | "no-scale" | "as-series";
 export declare type SubscribeBarsCallback = (bar: Bar) => void;
-export declare type SupportedLineTools = "text" | "anchored_text" | "note" | "anchored_note" | "signpost" | "double_curve" | "arc" | "icon" | "arrow_up" | "arrow_down" | "arrow_left" | "arrow_right" | "price_label" | "price_note" | "arrow_marker" | "flag" | "vertical_line" | "horizontal_line" | "cross_line" | "horizontal_ray" | "trend_line" | "info_line" | "trend_angle" | "arrow" | "ray" | "extended" | "parallel_channel" | "disjoint_angle" | "flat_bottom" | "pitchfork" | "schiff_pitchfork_modified" | "schiff_pitchfork" | "balloon" | "inside_pitchfork" | "pitchfan" | "gannbox" | "gannbox_square" | "gannbox_fixed" | "gannbox_fan" | "fib_retracement" | "fib_trend_ext" | "fib_speed_resist_fan" | "fib_timezone" | "fib_trend_time" | "fib_circles" | "fib_spiral" | "fib_speed_resist_arcs" | "fib_channel" | "xabcd_pattern" | "cypher_pattern" | "abcd_pattern" | "callout" | "triangle_pattern" | "3divers_pattern" | "head_and_shoulders" | "fib_wedge" | "elliott_impulse_wave" | "elliott_triangle_wave" | "elliott_triple_combo" | "elliott_correction" | "elliott_double_combo" | "cyclic_lines" | "time_cycles" | "sine_line" | "long_position" | "short_position" | "forecast" | "date_range" | "price_range" | "date_and_price_range" | "bars_pattern" | "ghost_feed" | "projection" | "rectangle" | "rotated_rectangle" | "ellipse" | "triangle" | "polyline" | "path" | "curve" | "cursor" | "dot" | "arrow_cursor" | "eraser" | "measure" | "zoom" | "brush" | "highlighter" | "regression_trend" | "fixed_range_volume_profile";
+export declare type SupportedLineTools = "text" | "anchored_text" | "note" | "anchored_note" | "signpost" | "double_curve" | "arc" | "icon" | "arrow_up" | "arrow_down" | "arrow_left" | "arrow_right" | "price_label" | "price_note" | "arrow_marker" | "flag" | "vertical_line" | "horizontal_line" | "cross_line" | "horizontal_ray" | "trend_line" | "info_line" | "trend_angle" | "arrow" | "ray" | "extended" | "parallel_channel" | "disjoint_angle" | "flat_bottom" | "pitchfork" | "schiff_pitchfork_modified" | "schiff_pitchfork" | "balloon" | "inside_pitchfork" | "pitchfan" | "gannbox" | "gannbox_square" | "gannbox_fixed" | "gannbox_fan" | "fib_retracement" | "fib_trend_ext" | "fib_speed_resist_fan" | "fib_timezone" | "fib_trend_time" | "fib_circles" | "fib_spiral" | "fib_speed_resist_arcs" | "fib_channel" | "xabcd_pattern" | "cypher_pattern" | "abcd_pattern" | "callout" | "triangle_pattern" | "3divers_pattern" | "head_and_shoulders" | "fib_wedge" | "elliott_impulse_wave" | "elliott_triangle_wave" | "elliott_triple_combo" | "elliott_correction" | "elliott_double_combo" | "cyclic_lines" | "time_cycles" | "sine_line" | "long_position" | "short_position" | "forecast" | "date_range" | "price_range" | "date_and_price_range" | "bars_pattern" | "ghost_feed" | "projection" | "rectangle" | "rotated_rectangle" | "circle" | "ellipse" | "triangle" | "polyline" | "path" | "curve" | "cursor" | "dot" | "arrow_cursor" | "eraser" | "measure" | "zoom" | "brush" | "highlighter" | "regression_trend" | "fixed_range_volume_profile";
 export declare type SymbolSearchCompleteOverrideFunction = (symbol: string) => Promise<string>;
 export declare type SymbolType = "stock" | "index" | "forex" | "futures" | "bitcoin" | "crypto" | "undefined" | "expression" | "spread" | "cfd" | "economic" | "equity" | "dr" | "bond" | "right" | "warrant" | "fund" | "structured";
 export declare type TextInputFieldValidator = (value: string) => InputFieldValidatorResult;
@@ -242,8 +243,10 @@ export declare type TickMarkType =
  | "TimeWithSeconds";
 export declare type TimeFrameValue = TimeFramePeriodBack | TimeFrameTimeRange;
 export declare type Timezone = "Etc/UTC" | CustomTimezones;
+export declare type TimezoneId = CustomTimezones | "Etc/UTC" | "exchange";
 export declare type TradableSolutions = ChangeAccountSolution | ChangeSymbolSolution;
-export declare type TradingDialogCustomField = TextWithCheckboxFieldMetaInfo | CustomComboBoxMetaInfo;
+export declare type TradingDialogCustomField = CheckboxFieldMetaInfo | TextWithCheckboxFieldMetaInfo | CustomComboBoxMetaInfo;
+export declare type VisiblePlotsSet = "ohlcv" | "ohlc" | "c";
 export declare type WatchListSymbolListAddedCallback = (listId: string, symbols: string[]) => void;
 export declare type WatchListSymbolListChangedCallback = (listId: string) => void;
 export declare type WatchListSymbolListRemovedCallback = (listId: string) => void;
@@ -366,6 +369,7 @@ export interface BaselineStylePreferences {
 	bottomFillColor2: string;
 	topLineColor: string;
 	bottomLineColor: string;
+	baselineColor: string;
 	topLineWidth: number;
 	bottomLineWidth: number;
 	transparency: number;
@@ -391,7 +395,9 @@ export interface BrokerConfigFlags {
 	supportTrades?: boolean;
 	supportClosePosition?: boolean;
 	supportCloseTrade?: boolean;
+	supportModifyOrderPrice?: boolean;
 	supportEditAmount?: boolean;
+	supportModifyBrackets?: boolean;
 	supportLevel2Data?: boolean;
 	supportDOM?: boolean;
 	supportMultiposition?: boolean;
@@ -406,12 +412,12 @@ export interface BrokerConfigFlags {
 	supportMarketBrackets?: boolean;
 	supportSymbolSearch?: boolean;
 	supportModifyDuration?: boolean;
-	supportModifyOrder?: boolean;
 	supportModifyTrailingStop?: boolean;
 	supportMargin?: boolean;
 	calculatePLUsingLast?: boolean;
 	supportPlaceOrderPreview?: boolean;
 	supportModifyOrderPreview?: boolean;
+	supportLeverage?: boolean;
 	supportOrdersHistory?: boolean;
 	supportAddBracketsToExistingOrder?: boolean;
 	supportBalances?: boolean;
@@ -443,6 +449,11 @@ export interface BrokerConfigFlags {
 	 * @deprecated
 	 */
 	supportBrackets?: boolean;
+	/**
+	 * Use supportModifyOrderPrice, supportEditAmount and supportModifyBrackets instead.
+	 * @deprecated
+	 */
+	supportModifyOrder?: boolean;
 }
 export interface BrokerCustomUI {
 	showOrderDialog?: (order: OrderTemplate | Order, focus?: OrderTicketFocusControl) => Promise<boolean>;
@@ -530,6 +541,7 @@ export interface ChartingLibraryWidgetOptions {
 	preset?: "mobile";
 	time_frames?: TimeFrameItem[];
 	custom_css_url?: string;
+	custom_font_family?: string;
 	favorites?: Favorites;
 	save_load_adapter?: IExternalSaveLoadAdapter;
 	loading_screen?: LoadingScreenOptions;
@@ -540,7 +552,14 @@ export interface ChartingLibraryWidgetOptions {
 	additional_symbol_info_fields?: AdditionalSymbolInfoField[];
 	header_widget_buttons_mode?: HeaderWidgetButtonsMode;
 	time_scale?: TimeScaleOptions;
+	custom_translate_function?: CustomTranslateFunction;
 	symbol_search_complete?: SymbolSearchCompleteOverrideFunction;
+}
+export interface CheckboxFieldMetaInfo extends CustomFieldMetaInfoBase {
+	inputType: "Checkbox";
+	value: boolean;
+	supportModify?: boolean;
+	help?: string;
 }
 export interface ClientSnapshotOptions {
 	backgroundColor: string;
@@ -605,6 +624,12 @@ export interface CryptoBalance {
 	longName?: string;
 	btcValue?: number;
 }
+export interface CurrencyItem {
+	id: string;
+	code: string;
+	logoUrl?: string;
+	description?: string;
+}
 export interface CustomComboBoxItem {
 	text: string;
 	value: string;
@@ -612,6 +637,13 @@ export interface CustomComboBoxItem {
 export interface CustomComboBoxMetaInfo extends CustomInputFieldMetaInfo {
 	inputType: "ComboBox";
 	items: CustomComboBoxItem[];
+}
+export interface CustomFieldMetaInfoBase {
+	inputType: string;
+	id: string;
+	title: string;
+	value?: any;
+	saveToSettings?: boolean;
 }
 export interface CustomFields {
 	[key: string]: any;
@@ -630,19 +662,14 @@ export interface CustomIndicator {
 	readonly metainfo: any;
 	readonly constructor: any;
 }
-export interface CustomInputFieldMetaInfo {
-	inputType: string;
-	id: string;
-	title: string;
+export interface CustomInputFieldMetaInfo extends CustomFieldMetaInfoBase {
 	preventModify?: boolean;
 	placeHolder?: string;
-	value?: any;
 	validator?: InputFieldValidator;
 	customInfo?: any;
-	saveToSettings?: boolean;
 }
 export interface CustomInputFieldsValues {
-	[fieldId: string]: TextWithCheckboxValue | string | any;
+	[fieldId: string]: TextWithCheckboxValue | boolean | string | any;
 }
 export interface DOMData {
 	snapshot: boolean;
@@ -657,7 +684,7 @@ export interface DatafeedConfiguration {
 	exchanges?: Exchange[];
 	supported_resolutions?: ResolutionString[];
 	units?: Record<string, Unit[]>;
-	currency_codes?: string[];
+	currency_codes?: (string | CurrencyItem)[];
 	supports_marks?: boolean;
 	supports_time?: boolean;
 	supports_timescale_marks?: boolean;
@@ -870,7 +897,6 @@ export interface IBrokerConnectionAdapterHost {
 	setButtonDropdownActions(descriptions: ActionMetaInfo[]): void;
 	activateBottomWidget(): Promise<void>;
 	showTradingProperties(): void;
-	suggestedQty(): SuggestedQuantity;
 	getSymbolMinTick(symbol: string): Promise<number>;
 	showMessageDialog(title: string, text: string, textHasHTML: boolean): void;
 	showConfirmDialog(title: string, content: string | string[], mainButtonText?: string, cancelButtonText?: string, showDisableConfirmationsCheckbox?: boolean): Promise<boolean>;
@@ -893,6 +919,9 @@ export interface IBrokerWithoutRealtime extends IBrokerCommon {
 	closeTrade?(tradeId: string, amount?: number): Promise<void>;
 	editPositionBrackets?(positionId: string, brackets: Brackets, customFields?: CustomInputFieldsValues): Promise<void>;
 	editTradeBrackets?(tradeId: string, brackets: Brackets): Promise<void>;
+	leverageInfo?(leverageInfoParams: LeverageInfoParams): Promise<LeverageInfo>;
+	setLeverage?(leverageSetParams: LeverageSetParams): Promise<LeverageSetResult>;
+	previewLeverage?(leverageSetParams: LeverageSetParams): Promise<LeveragePreviewResult>;
 	/**
 	 * @deprecated Brokers should always send PL and equity updates
 	 */
@@ -941,9 +970,16 @@ export interface IChartWidgetApi {
 	bringForward(sources: readonly EntityId[]): void;
 	sendBackward(sources: readonly EntityId[]): void;
 	/**
-	 * @deprecated Use shape/study API instead ([getStudyById] / [getShapeById])
+	 * @deprecated Use shape/study API instead.
+	 * @see {@link getStudyById}
+	 * @see {@link getShapeById}
 	 */
 	setEntityVisibility(entityId: EntityId, isVisible: boolean): void;
+	createStudy<TOverrides extends StudyOverrides>(name: string, forceOverlay?: boolean, lock?: boolean, inputs?: Record<string, StudyInputValue>, overrides?: TOverrides, options?: CreateStudyOptions): Promise<EntityId | null>;
+	/**
+	 * @deprecated Prefer `createStudy` function that relies on named properties for `inputs`.
+	 * @see {@link createStudy}
+	 */
 	createStudy<TStudyInputValue extends StudyInputValue, TOverrides extends StudyOverrides>(name: string, forceOverlay?: boolean, lock?: boolean, inputs?: TStudyInputValue[], overrides?: TOverrides, options?: CreateStudyOptions): Promise<EntityId | null>;
 	getStudyById(entityId: EntityId): IStudyApi;
 	getSeries(): ISeriesApi;
@@ -972,8 +1008,17 @@ export interface IChartWidgetApi {
 	defaultScrollPosition(): number;
 	priceFormatter(): INumberFormatter;
 	chartType(): SeriesStyle;
+	/**
+	 * @deprecated Use Timezone API instead
+	 * @see {@link getTimezoneApi}
+	 */
 	setTimezone(timezone: "exchange" | Timezone): void;
+	/**
+	 * @deprecated Use Timezone API instead
+	 * @see {@link getTimezoneApi}
+	 */
 	getTimezone(): "exchange" | Timezone;
+	getTimezoneApi(): ITimezoneApi;
 	getPanes(): IPaneApi[];
 	exportData(options?: Partial<ExportDataOptions>): Promise<ExportedData>;
 	canZoomOut(): boolean;
@@ -1386,6 +1431,12 @@ export interface ITimeScaleApi {
 	 */
 	rightOffsetChanged(): ISubscription<(rightOffset: number) => void>;
 }
+export interface ITimezoneApi {
+	availableTimezones(): readonly TimezoneInfo[];
+	getTimezone(): TimezoneInfo;
+	setTimezone(timezone: TimezoneId, options?: UndoOptions): void;
+	onTimezoneChanged(): ISubscription<(timezone: TimezoneId) => void>;
+}
 export interface IWatchListApi {
 	defaultList(): string[];
 	getList(id?: string): string[] | null;
@@ -1448,6 +1499,30 @@ export interface KagiStylePreferences {
 	downColor: string;
 	upColorProjection: string;
 	downColorProjection: string;
+}
+export interface LeverageInfo {
+	title: string;
+	leverage: number;
+	min: number;
+	max: number;
+	step: number;
+}
+export interface LeverageInfoParams {
+	symbol: string;
+	orderType: OrderType;
+	side: Side;
+	customFields?: CustomInputFieldsValues;
+}
+export interface LeveragePreviewResult {
+	infos?: string[];
+	warnings?: string[];
+	errors?: string[];
+}
+export interface LeverageSetParams extends LeverageInfoParams {
+	leverage: number;
+}
+export interface LeverageSetResult {
+	leverage: number;
 }
 export interface LibrarySymbolInfo {
 	/**
@@ -1526,7 +1601,15 @@ export interface LibrarySymbolInfo {
 	has_daily?: boolean;
 	has_weekly_and_monthly?: boolean;
 	has_empty_bars?: boolean;
+	/**
+	 * @deprecated
+	 * use visible_plots_set instead
+	 */
 	has_no_volume?: boolean;
+	/**
+	 * Represents what values are supported by the symbol
+	 */
+	visible_plots_set?: VisiblePlotsSet;
 	/**
 	 * Integer showing typical volume value decimal places for this symbol
 	 */
@@ -1922,11 +2005,6 @@ export interface SuccessFormatterParseResult<T> extends FormatterParseResult {
 	value: T;
 	suggest?: string;
 }
-export interface SuggestedQuantity {
-	changed: IDelegate<(symbol: string) => void>;
-	value(symbol: string): Promise<number>;
-	setValue(symbol: string, value: number): void;
-}
 export interface SymbolExt {
 	symbol: string;
 	full_name: string;
@@ -1988,6 +2066,11 @@ export interface TimescaleMark {
 	label: string;
 	tooltip: string[];
 }
+export interface TimezoneInfo {
+	id: TimezoneId;
+	title: string;
+	offset?: number;
+}
 export interface Trade extends CustomFields {
 	id: string;
 	date: number;
@@ -2030,6 +2113,12 @@ export interface TradingTerminalWidgetOptions extends ChartingLibraryWidgetOptio
 	trading_customization?: TradingCustomization;
 	brokerFactory?(host: IBrokerConnectionAdapterHost): IBrokerWithoutRealtime | IBrokerTerminal;
 	broker_factory?(host: IBrokerConnectionAdapterHost): IBrokerWithoutRealtime | IBrokerTerminal;
+}
+export interface TranslateOptions {
+	plural?: string;
+	count?: number;
+	context?: string;
+	replace?: Record<string, string>;
 }
 export interface UndoOptions {
 	disableUndo?: boolean;
@@ -2080,7 +2169,7 @@ export interface WidgetBarParams {
 		readonly?: boolean;
 	};
 }
-export type CustomTimezones = "Africa/Cairo" | "Africa/Johannesburg" | "Africa/Lagos" | "America/Argentina/Buenos_Aires" | "America/Bogota" | "America/Caracas" | "America/Chicago" | "America/El_Salvador" | "America/Juneau" | "America/Lima" | "America/Los_Angeles" | "America/Mexico_City" | "America/New_York" | "America/Phoenix" | "America/Santiago" | "America/Sao_Paulo" | "America/Toronto" | "America/Vancouver" | "Asia/Almaty" | "Asia/Ashkhabad" | "Asia/Bahrain" | "Asia/Bangkok" | "Asia/Chongqing" | "Asia/Dubai" | "Asia/Ho_Chi_Minh" | "Asia/Hong_Kong" | "Asia/Jakarta" | "Asia/Jerusalem" | "Asia/Kathmandu" | "Asia/Kolkata" | "Asia/Kuwait" | "Asia/Muscat" | "Asia/Qatar" | "Asia/Riyadh" | "Asia/Seoul" | "Asia/Shanghai" | "Asia/Singapore" | "Asia/Taipei" | "Asia/Tehran" | "Asia/Tokyo" | "Atlantic/Reykjavik" | "Australia/ACT" | "Australia/Adelaide" | "Australia/Brisbane" | "Australia/Perth" | "Australia/Sydney" | "Europe/Amsterdam" | "Europe/Athens" | "Europe/Belgrade" | "Europe/Berlin" | "Europe/Brussels" | "Europe/Copenhagen" | "Europe/Dublin" | "Europe/Helsinki" | "Europe/Istanbul" | "Europe/Lisbon" | "Europe/London" | "Europe/Luxembourg" | "Europe/Madrid" | "Europe/Malta" | "Europe/Moscow" | "Europe/Oslo" | "Europe/Paris" | "Europe/Riga" | "Europe/Rome" | "Europe/Stockholm" | "Europe/Tallinn" | "Europe/Vilnius" | "Europe/Warsaw" | "Europe/Zurich" | "Pacific/Auckland" | "Pacific/Chatham" | "Pacific/Fakaofo" | "Pacific/Honolulu" | "Pacific/Norfolk" | "US/Mountain";
+export type CustomTimezones = "Africa/Cairo" | "Africa/Johannesburg" | "Africa/Lagos" | "America/Argentina/Buenos_Aires" | "America/Bogota" | "America/Caracas" | "America/Chicago" | "America/El_Salvador" | "America/Juneau" | "America/Lima" | "America/Los_Angeles" | "America/Mexico_City" | "America/New_York" | "America/Phoenix" | "America/Santiago" | "America/Sao_Paulo" | "America/Toronto" | "America/Vancouver" | "Asia/Almaty" | "Asia/Ashkhabad" | "Asia/Bahrain" | "Asia/Bangkok" | "Asia/Chongqing" | "Asia/Dubai" | "Asia/Ho_Chi_Minh" | "Asia/Hong_Kong" | "Asia/Jakarta" | "Asia/Jerusalem" | "Asia/Karachi" | "Asia/Kathmandu" | "Asia/Kolkata" | "Asia/Kuwait" | "Asia/Manila" | "Asia/Muscat" | "Asia/Qatar" | "Asia/Riyadh" | "Asia/Seoul" | "Asia/Shanghai" | "Asia/Singapore" | "Asia/Taipei" | "Asia/Tehran" | "Asia/Tokyo" | "Atlantic/Reykjavik" | "Australia/ACT" | "Australia/Adelaide" | "Australia/Brisbane" | "Australia/Perth" | "Australia/Sydney" | "Europe/Amsterdam" | "Europe/Athens" | "Europe/Belgrade" | "Europe/Berlin" | "Europe/Bratislava" | "Europe/Brussels" | "Europe/Bucharest" | "Europe/Copenhagen" | "Europe/Dublin" | "Europe/Helsinki" | "Europe/Istanbul" | "Europe/Lisbon" | "Europe/London" | "Europe/Luxembourg" | "Europe/Madrid" | "Europe/Malta" | "Europe/Moscow" | "Europe/Oslo" | "Europe/Paris" | "Europe/Riga" | "Europe/Rome" | "Europe/Stockholm" | "Europe/Tallinn" | "Europe/Vilnius" | "Europe/Warsaw" | "Europe/Zurich" | "Pacific/Auckland" | "Pacific/Chatham" | "Pacific/Fakaofo" | "Pacific/Honolulu" | "Pacific/Norfolk" | "US/Mountain";
 
 export as namespace TradingView;
 
