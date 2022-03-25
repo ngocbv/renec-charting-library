@@ -24,6 +24,151 @@ declare enum StopType {
 	StopLoss = 0,
 	TrailingStop = 1
 }
+export declare const enum ActionId {
+	ChartAddIndicatorToAllCharts = "Chart.AddIndicatorToAllCharts",
+	ChartAddSymbolToWatchList = "Chart.AddSymbolToWatchList",
+	ChartApplyIndicatorsToAllCharts = "Chart.ApplyIndicatorsToAllCharts",
+	ChartChangeTimeZone = "Chart.ChangeTimeZone",
+	ChartClipboardCopyLineTools = "Chart.Clipboard.CopyLineTools",
+	ChartClipboardCopySource = "Chart.Clipboard.CopySource",
+	ChartClipboardPasteSource = "Chart.Clipboard.PasteSource",
+	ChartCrosshairLockVerticalCursor = "Chart.Crosshair.LockVerticalCursor",
+	ChartCrosshairPlusButtonDrawHorizontalLine = "Chart.Crosshair.PlusButton.DrawHorizontalLine",
+	ChartCustomActionId = "Chart.CustomActionId",
+	ChartDialogsShowChangeInterval = "Chart.Dialogs.ShowChangeInterval",
+	ChartDialogsShowChangeSymbol = "Chart.Dialogs.ShowChangeSymbol",
+	ChartDialogsShowCompareOrAddSymbol = "Chart.Dialogs.ShowCompareOrAddSymbol",
+	ChartDialogsShowGeneralSettings = "Chart.Dialogs.ShowGeneralSettings",
+	ChartDialogsShowGeneralSettingsLegendTab = "Chart.Dialogs.ShowGeneralSettings.LegendTab",
+	ChartDialogsShowGeneralSettingsScalesTab = "Chart.Dialogs.ShowGeneralSettings.ScalesTab",
+	ChartDialogsShowGeneralSettingsSymbolTab = "Chart.Dialogs.ShowGeneralSettings.SymbolTab",
+	ChartDialogsShowGoToDate = "Chart.Dialogs.ShowGoToDate",
+	ChartDialogsShowInsertIndicators = "Chart.Dialogs.ShowInsertIndicators",
+	ChartDialogsShowSymbolInfo = "Chart.Dialogs.ShowSymbolInfo",
+	ChartDrawingToolbarToggleVisibility = "Chart.DrawingToolbar.ToggleVisibility",
+	ChartExternalActionId = "Chart.ExternalActionId",
+	ChartFavoriteDrawingToolsToolbarHide = "Chart.FavoriteDrawingToolsToolbar.Hide",
+	ChartIndicatorShowSettingsDialog = "Chart.Indicator.ShowSettingsDialog",
+	ChartLegendToggleBarChangeValuesVisibility = "Chart.Legend.ToggleBarChangeValuesVisibility",
+	ChartLegendToggleIndicatorArgumentsVisibility = "Chart.Legend.ToggleIndicatorArgumentsVisibility",
+	ChartLegendToggleIndicatorTitlesVisibility = "Chart.Legend.ToggleIndicatorTitlesVisibility",
+	ChartLegendToggleIndicatorValuesVisibility = "Chart.Legend.ToggleIndicatorValuesVisibility",
+	ChartLegendToggleOhlcValuesVisibility = "Chart.Legend.ToggleOhlcValuesVisibility",
+	ChartLegendToggleOpenMarketStatusVisibility = "Chart.Legend.ToggleOpenMarketStatusVisibility",
+	ChartLegendToggleSymbolVisibility = "Chart.Legend.ToggleSymbolVisibility",
+	ChartLegendToggleVolumeVisibility = "Chart.Legend.ToggleVolumeVisibility",
+	ChartLines = "Chart.Lines",
+	ChartLinesToggleBidAskLinesVisibility = "Chart.Lines.ToggleBidAskLinesVisibility",
+	ChartLinesToggleHighLowLinesVisibility = "Chart.Lines.ToggleHighLowLinesVisibility",
+	ChartLinesToggleSeriesPrevCloseLineVisibility = "Chart.Lines.ToggleSeriesPrevCloseLineVisibility",
+	ChartLinesToggleSeriesPriceLineVisibility = "Chart.Lines.ToggleSeriesPriceLineVisibility",
+	ChartLineToolBarsPatternToggleFlipped = "Chart.LineTool.BarsPattern.ToggleFlipped",
+	ChartLineToolBarsPatternToggleMirrored = "Chart.LineTool.BarsPattern.ToggleMirrored",
+	ChartLineToolClone = "Chart.LineTool.Clone",
+	ChartLineToolCreateLimitOrderFromState = "Chart.LineTool.CreateLimitOrderFromState",
+	ChartLineToolElliotChangeDegreeProperty = "Chart.LineTool.Elliot.ChangeDegreeProperty",
+	ChartLineToolNoSync = "Chart.LineTool.NoSync",
+	ChartLineToolPitchforkChangeTypeToInside = "Chart.LineTool.Pitchfork.ChangeTypeToInside",
+	ChartLineToolPitchforkChangeTypeToModifiedSchiff = "Chart.LineTool.Pitchfork.ChangeTypeToModifiedSchiff",
+	ChartLineToolPitchforkChangeTypeToOriginal = "Chart.LineTool.Pitchfork.ChangeTypeToOriginal",
+	ChartLineToolPitchforkChangeTypeToSchiff = "Chart.LineTool.Pitchfork.ChangeTypeToSchiff",
+	ChartLineToolSyncInLayout = "Chart.LineTool.SyncInLayout",
+	ChartLineToolTemplates = "Chart.LineTool.Templates",
+	ChartLineToolTemplatesApply = "Chart.LineTool.Templates.Apply",
+	ChartLineToolTemplatesApplyDefaults = "Chart.LineTool.Templates.ApplyDefaults",
+	ChartLineToolTemplatesSaveAs = "Chart.LineTool.Templates.SaveAs",
+	ChartLineToolToolbarChangeFontSizeProperty = "Chart.LineTool.Toolbar.ChangeFontSizeProperty",
+	ChartLineToolToolbarChangeLineStyleToDashed = "Chart.LineTool.Toolbar.ChangeLineStyleToDashed",
+	ChartLineToolToolbarChangeLineStyleToDotted = "Chart.LineTool.Toolbar.ChangeLineStyleToDotted",
+	ChartLineToolToolbarChangeLineStyleToSolid = "Chart.LineTool.Toolbar.ChangeLineStyleToSolid",
+	ChartMarksToggleVisibility = "Chart.Marks.ToggleVisibility",
+	ChartMoveChartInLayout = "Chart.MoveChartInLayout",
+	ChartMoveChartInLayoutBack = "Chart.MoveChartInLayout.Back",
+	ChartMoveChartInLayoutForward = "Chart.MoveChartInLayout.Forward",
+	ChartObjectTreeShow = "Chart.ObjectTree.Show",
+	ChartPaneControlsDeletePane = "Chart.PaneControls.DeletePane",
+	ChartPaneControlsMaximizePane = "Chart.PaneControls.MaximizePane",
+	ChartPaneControlsMinimizePane = "Chart.PaneControls.MinimizePane",
+	ChartPaneControlsMovePaneDown = "Chart.PaneControls.MovePaneDown",
+	ChartPaneControlsMovePaneUp = "Chart.PaneControls.MovePaneUp",
+	ChartPriceScaleLabels = "Chart.PriceScale.Labels",
+	ChartPriceScaleLabelsToggleBidAskLabelsVisibility = "Chart.PriceScale.Labels.ToggleBidAskLabelsVisibility",
+	ChartPriceScaleLabelsToggleHighLowPriceLabelsVisibility = "Chart.PriceScale.Labels.ToggleHighLowPriceLabelsVisibility",
+	ChartPriceScaleLabelsToggleIndicatorsNameLabelsVisibility = "Chart.PriceScale.Labels.ToggleIndicatorsNameLabelsVisibility",
+	ChartPriceScaleLabelsToggleIndicatorsValueLabelsVisibility = "Chart.PriceScale.Labels.ToggleIndicatorsValueLabelsVisibility",
+	ChartPriceScaleLabelsToggleNoOverlappingLabelsVisibility = "Chart.PriceScale.Labels.ToggleNoOverlappingLabelsVisibility",
+	ChartPriceScaleLabelsToggleSeriesLastValueVisibility = "Chart.PriceScale.Labels.ToggleSeriesLastValueVisibility",
+	ChartPriceScaleLabelsToggleSymbolNameLabelsVisibility = "Chart.PriceScale.Labels.ToggleSymbolNameLabelsVisibility",
+	ChartPriceScaleLabelsToggleSymbolPrevCloseValueVisibility = "Chart.PriceScale.Labels.ToggleSymbolPrevCloseValueVisibility",
+	ChartPriceScaleMergeAllScales = "Chart.PriceScale.MergeAllScales",
+	ChartPriceScaleMergeAllScalesToLeft = "Chart.PriceScale.MergeAllScalesToLeft",
+	ChartPriceScaleMergeAllScalesToRight = "Chart.PriceScale.MergeAllScalesToRight",
+	ChartPriceScaleMoveToLeft = "Chart.PriceScale.MoveToLeft",
+	ChartPriceScaleMoveToRight = "Chart.PriceScale.MoveToRight",
+	ChartPriceScaleReset = "Chart.PriceScale.Reset",
+	ChartPriceScaleToggleAddOrderPlusButtonVisibility = "Chart.PriceScale.ToggleAddOrderPlusButtonVisibility",
+	ChartPriceScaleToggleAutoScale = "Chart.PriceScale.ToggleAutoScale",
+	ChartPriceScaleToggleAutoScaleSeriesOnly = "Chart.PriceScale.ToggleAutoScaleSeriesOnly",
+	ChartPriceScaleToggleCountdownToBarCloseVisibility = "Chart.PriceScale.ToggleCountdownToBarCloseVisibility",
+	ChartPriceScaleToggleCurrencyVisibility = "Chart.PriceScale.ToggleCurrencyVisibility",
+	ChartPriceScaleToggleIndexedTo100 = "Chart.PriceScale.ToggleIndexedTo100",
+	ChartPriceScaleToggleInvertScale = "Chart.PriceScale.ToggleInvertScale",
+	ChartPriceScaleToggleLogarithmic = "Chart.PriceScale.ToggleLogarithmic",
+	ChartPriceScaleTogglePercentage = "Chart.PriceScale.TogglePercentage",
+	ChartPriceScaleToggleRegular = "Chart.PriceScale.ToggleRegular",
+	ChartPriceScaleToggleUnitVisibility = "Chart.PriceScale.ToggleUnitVisibility",
+	ChartRedo = "Chart.Redo",
+	ChartRemoveAllIndicators = "Chart.RemoveAllIndicators",
+	ChartRemoveAllIndicatorsAndLineTools = "Chart.RemoveAllIndicatorsAndLineTools",
+	ChartRemoveAllLineTools = "Chart.RemoveAllLineTools",
+	ChartScalesReset = "Chart.Scales.Reset",
+	ChartScalesToggleLockPriceToBarRatio = "Chart.Scales.ToggleLockPriceToBarRatio",
+	ChartScrollToLineTool = "Chart.ScrollToLineTool",
+	ChartSelectedObjectHide = "Chart.SelectedObject.Hide",
+	ChartSelectedObjectRemove = "Chart.SelectedObject.Remove",
+	ChartSelectedObjectShow = "Chart.SelectedObject.Show",
+	ChartSelectedObjectShowSettingsDialog = "Chart.SelectedObject.ShowSettingsDialog",
+	ChartSelectedObjectToggleLocked = "Chart.SelectedObject.ToggleLocked",
+	ChartSeriesPriceScaleToggleAutoScale = "Chart.Series.PriceScale.ToggleAutoScale",
+	ChartSeriesPriceScaleToggleIndexedTo100 = "Chart.Series.PriceScale.ToggleIndexedTo100",
+	ChartSeriesPriceScaleToggleInvertPriceScale = "Chart.Series.PriceScale.ToggleInvertPriceScale",
+	ChartSeriesPriceScaleToggleLogarithmic = "Chart.Series.PriceScale.ToggleLogarithmic",
+	ChartSeriesPriceScaleTogglePercentage = "Chart.Series.PriceScale.TogglePercentage",
+	ChartSeriesPriceScaleToggleRegular = "Chart.Series.PriceScale.ToggleRegular",
+	ChartSessionBreaksToggleVisibility = "Chart.SessionBreaks.ToggleVisibility",
+	ChartSourceChangePriceScale = "Chart.Source.ChangePriceScale",
+	ChartSourceMergeDown = "Chart.Source.MergeDown",
+	ChartSourceMergeUp = "Chart.Source.MergeUp",
+	ChartSourceMoveToNoScale = "Chart.Source.MoveToNoScale",
+	ChartSourceMoveToOtherScale = "Chart.Source.MoveToOtherScale",
+	ChartSourceMoveToPane = "Chart.Source.MoveToPane",
+	ChartSourceUnmergeDown = "Chart.Source.UnmergeDown",
+	ChartSourceUnmergeUp = "Chart.Source.UnmergeUp",
+	ChartSourceVisualOrder = "Chart.Source.VisualOrder",
+	ChartSourceVisualOrderBringForward = "Chart.Source.VisualOrder.BringForward",
+	ChartSourceVisualOrderBringToFront = "Chart.Source.VisualOrder.BringToFront",
+	ChartSourceVisualOrderSendBackward = "Chart.Source.VisualOrder.SendBackward",
+	ChartSourceVisualOrderSendToBack = "Chart.Source.VisualOrder.SendToBack",
+	ChartTimeScaleReset = "Chart.TimeScale.Reset",
+	ChartUndo = "Chart.Undo",
+	ObjectsTreeCreateGroup = "ObjectsTree.CreateGroup",
+	ObjectsTreeRemoveItem = "ObjectsTree.RemoveItem",
+	ObjectsTreeRenameItem = "ObjectsTree.RenameItem",
+	ObjectsTreeToggleItemLocked = "ObjectsTree.ToggleItemLocked",
+	ObjectsTreeToggleItemVisibility = "ObjectsTree.ToggleItemVisibility",
+	TradingCancelOrder = "Trading.CancelOrder",
+	TradingClosePosition = "Trading.ClosePosition",
+	TradingCustomActionId = "Trading.CustomActionId",
+	TradingDomePlaceLimitOrder = "Trading.DomePlaceLimitOrder",
+	TradingDomePlaceMarketOrder = "Trading.DomePlaceMarketOrder",
+	TradingDomePlaceStopLimitOrder = "Trading.DomePlaceStopLimitOrder",
+	TradingDomePlaceStopOrder = "Trading.DomePlaceStopOrder",
+	TradingEditOrder = "Trading.EditOrder",
+	TradingModifyPosition = "Trading.ModifyPosition",
+	TradingReversePosition = "Trading.ReversePosition",
+	TradingSellBuyButtonsToggleVisibility = "Trading.SellBuyButtonsToggleVisibility",
+	TradingTradeFromChart = "Trading.TradeFromChart"
+}
 export declare const enum ChartStyle {
 	Bar = 0,
 	Candle = 1,
@@ -43,6 +188,10 @@ export declare const enum ConnectionStatus {
 	Connecting = 2,
 	Disconnected = 3,
 	Error = 4
+}
+export declare const enum MenuItemType {
+	Separator = "separator",
+	Action = "action"
 }
 export declare const enum NotificationType {
 	Error = 0,
@@ -150,6 +299,7 @@ export declare type ActionMetaInfo = ActionDescriptionWithCallback | MenuSeparat
 export declare type AvailableSaveloadVersions = "1.0" | "1.1";
 export declare type CellAlignment = "left" | "right";
 export declare type ChartActionId = "chartProperties" | "compareOrAdd" | "scalesProperties" | "paneObjectTree" | "insertIndicator" | "symbolSearch" | "changeInterval" | "timeScaleReset" | "chartReset" | "seriesHide" | "studyHide" | "lineToggleLock" | "lineHide" | "scaleSeriesOnly" | "drawingToolbarAction" | "stayInDrawingModeAction" | "hideAllMarks" | "showCountdown" | "showSeriesLastValue" | "showSymbolLabelsAction" | "showStudyLastValue" | "showStudyPlotNamesAction" | "undo" | "redo" | "paneRemoveAllStudiesDrawingTools" | "showSymbolInfoDialog";
+export declare type ContextMenuItemsProcessor = (items: readonly IActionVariant[], actionsFactory: ActionsFactory) => Promise<readonly IActionVariant[]>;
 export declare type CustomTranslateFunction = (key: string, options?: TranslateOptions) => string | null;
 export declare type DateFormat = keyof typeof dateFormatFunctions;
 export declare type Direction = "buy" | "sell";
@@ -167,6 +317,7 @@ export declare type GroupLockState = "Locked" | "Unlocked" | "Partial";
 export declare type GroupVisibilityState = "Visible" | "Invisible" | "Partial";
 export declare type HeaderWidgetButtonsMode = "fullsize" | "compact" | "adaptive";
 export declare type HistoryCallback = (bars: Bar[], meta?: HistoryMetadata) => void;
+export declare type IActionVariant = IAction | ISeparator;
 export declare type IBasicDataFeed = IDatafeedChartApi & IExternalDatafeed;
 export declare type INumberFormatter = IFormatter<number>;
 export declare type InputFieldValidator = (value: any) => InputFieldValidatorResult;
@@ -192,6 +343,8 @@ export declare type MultipleChartsLayoutType = "2h" | "2v" | "2-1" | "3s" | "3h"
 export declare type Nominal<T, Name extends string> = T & {
 	[Symbol.species]: Name;
 };
+export declare type OnActionExecuteHandler = (action: IAction) => void;
+export declare type OnActionUpdateHandler = (action: IAction) => void;
 export declare type OnReadyCallback = (configuration: DatafeedConfiguration) => void;
 export declare type Order = PlacedOrder | BracketOrder;
 export declare type PineJS = any;
@@ -325,6 +478,75 @@ export interface ActionDescription {
 }
 export interface ActionDescriptionWithCallback extends ActionDescription {
 	action: (a?: ActionDescription) => void;
+}
+export interface ActionOptions extends Partial<Omit<ActionState, "actionId">>, Pick<ActionState, "actionId"> {
+	/**
+	 * A function which will be called when an action should be executed (e.g. when a user clicks on the item).
+	 */
+	onExecute?: OnActionExecuteHandler;
+}
+export interface ActionState {
+	/**
+	 * Human-readable, non-unique ID of an action item. Similar to {@link label}, but language-agnostic.
+	 */
+	actionId: ActionId;
+	active: boolean;
+	/**
+	 * Text title of an action
+	 */
+	label: string;
+	/**
+	 * Whether an action is disabled or not (disabled actions are usually cannot be executed and displayed grayed out)
+	 */
+	disabled: boolean;
+	/**
+	 * Sub-items of an action
+	 */
+	subItems: IActionVariant[];
+	/**
+	 * Whether an action should have a checkbox next to it.
+	 */
+	checkable: boolean;
+	/**
+	 * If {@link checkable} is `true` then whether current state is checked or not.
+	 */
+	checked: boolean;
+	/**
+	 * A hint of an action.
+	 */
+	hint?: string;
+	/**
+	 * A string of SVG icon for an action. A string should be a string representation of SVG (not a path/URL).
+	 */
+	icon?: string;
+	/**
+	 * If {@link checkable} is `true` then an icon to be used when {@link checked} is `true`.
+	 */
+	iconChecked?: string;
+	/**
+	 * Whether an action is still in loading state (it means that it's data is not ready yet).
+	 * Usually in this case a spinner/loader will be displayed instead of this action.
+	 */
+	loading: boolean;
+	/**
+	 * A string that represents a shortcut hint for this action.
+	 */
+	shortcutHint?: string;
+}
+export interface ActionsFactory {
+	/**
+	 * Creates an action with provided options.
+	 */
+	createAction: (options: ActionOptions) => IUpdatableAction;
+	/**
+	 * Creates an action that will wait for a promise to get its options.
+	 * In terms of GUI until a promise is resolved the loader/spinner will be displayed.
+	 */
+	createAsyncAction: (loader: () => Promise<ActionOptions>) => IUpdatableAction;
+	/**
+	 * Creates a separator item.
+	 */
+	createSeparator: () => ISeparator;
 }
 export interface AdditionalSymbolInfoField {
 	title: string;
@@ -551,6 +773,7 @@ export interface ChartingLibraryWidgetOptions {
 	custom_indicators_getter?: (PineJS: PineJS) => Promise<readonly CustomIndicator[]>;
 	additional_symbol_info_fields?: AdditionalSymbolInfoField[];
 	header_widget_buttons_mode?: HeaderWidgetButtonsMode;
+	context_menu?: ContextMenuOptions;
 	time_scale?: TimeScaleOptions;
 	custom_translate_function?: CustomTranslateFunction;
 	symbol_search_complete?: SymbolSearchCompleteOverrideFunction;
@@ -577,6 +800,9 @@ export interface ContextMenuItem {
 	position: "top" | "bottom";
 	text: string;
 	click: EmptyCallback;
+}
+export interface ContextMenuOptions {
+	items_processor?: ContextMenuItemsProcessor;
 }
 export interface CreateButtonOptions {
 	align: "right" | "left";
@@ -828,6 +1054,21 @@ export interface HollowCandleStylePreferences {
 	wickColor: string;
 	wickUpColor: string;
 	wickDownColor: string;
+}
+export interface IAction extends IMenuItem {
+	readonly type: MenuItemType.Action;
+	/**
+	 * A method which will be called when an action should be executed (e.g. when a user clicks on the item)
+	 */
+	execute(): void;
+	/**
+	 * @returns Returns a state object of the action.
+	 */
+	getState(): Readonly<ActionState>;
+	/**
+	 * @returns A subscription for an event when an action is updated.
+	 */
+	onUpdate(): ISubscription<OnActionUpdateHandler>;
 }
 export interface IBoxedValue<T> extends IBoxedValueReadOnly<T> {
 	setValue(value: T): void;
@@ -1184,6 +1425,13 @@ export interface ILineDataSourceApi {
 	getPoints(): PricedPoint[];
 	setPoints(points: ShapePoint[]): void;
 }
+export interface IMenuItem {
+	readonly type: MenuItemType;
+	/**
+	 * An unique ID of an action item. Could be used to distinguish actions between each other.
+	 */
+	readonly id: string;
+}
 export interface INewsApi {
 	refresh(): void;
 }
@@ -1347,6 +1595,9 @@ export interface ISelectionApi {
 	onChanged(): ISubscription<() => void>;
 	canBeAddedToSelection(entity: EntityId): boolean;
 }
+export interface ISeparator extends IMenuItem {
+	readonly type: MenuItemType.Separator;
+}
 export interface ISeriesApi {
 	isUserEditEnabled(): boolean;
 	setUserEditEnabled(enabled: boolean): void;
@@ -1436,6 +1687,9 @@ export interface ITimezoneApi {
 	getTimezone(): TimezoneInfo;
 	setTimezone(timezone: TimezoneId, options?: UndoOptions): void;
 	onTimezoneChanged(): ISubscription<(timezone: TimezoneId) => void>;
+}
+export interface IUpdatableAction extends IAction {
+	update(options: Partial<ActionOptions>): void;
 }
 export interface IWatchListApi {
 	defaultList(): string[];
