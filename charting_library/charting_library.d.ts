@@ -300,6 +300,7 @@ export declare type AvailableSaveloadVersions = "1.0" | "1.1";
 export declare type CellAlignment = "left" | "right";
 export declare type ChartActionId = "chartProperties" | "compareOrAdd" | "scalesProperties" | "paneObjectTree" | "insertIndicator" | "symbolSearch" | "changeInterval" | "timeScaleReset" | "chartReset" | "seriesHide" | "studyHide" | "lineToggleLock" | "lineHide" | "scaleSeriesOnly" | "drawingToolbarAction" | "stayInDrawingModeAction" | "hideAllMarks" | "showCountdown" | "showSeriesLastValue" | "showSymbolLabelsAction" | "showStudyLastValue" | "showStudyPlotNamesAction" | "undo" | "redo" | "paneRemoveAllStudiesDrawingTools" | "showSymbolInfoDialog";
 export declare type ContextMenuItemsProcessor = (items: readonly IActionVariant[], actionsFactory: ActionsFactory) => Promise<readonly IActionVariant[]>;
+export declare type ContextMenuRendererFactory = (items: readonly IActionVariant[], params: CreateContextMenuParams, onDestroy: () => void) => Promise<IContextMenuRenderer>;
 export declare type CustomTranslateFunction = (key: string, options?: TranslateOptions) => string | null;
 export declare type DateFormat = keyof typeof dateFormatFunctions;
 export declare type Direction = "buy" | "sell";
@@ -803,9 +804,44 @@ export interface ContextMenuItem {
 }
 export interface ContextMenuOptions {
 	items_processor?: ContextMenuItemsProcessor;
+	/**
+	 * This API is experimental and might be changed significantly in the future releases.
+	 */
+	renderer_factory?: ContextMenuRendererFactory;
+}
+export interface ContextMenuPosition {
+	clientX: number;
+	clientY: number;
+	touches?: readonly {
+		clientX: number;
+		clientY: number;
+	}[];
+	/**
+	 * Tells what side of the context menu widget should be used to "attach" to a provided x coordinate.
+	 * If the value is `undefined`, then you may treat it based on whether it is rtl or not (e.g. `'right'` for rtl and `'left'` otherwise).
+	 */
+	attachToXBy?: "left" | "right";
+	/**
+	 * Tells what side of the context menu widget should be used to "attach" to a provided y coordinate:
+	 * - `'auto'` means similar to `'top'` but the menu could be expanded above the coordinate if needed (if there is no enough space to place it below)
+	 * - `'auto-strict'` means `'top'` if the whole menu fits the space below the coordinate and `'bottom'` otherwise (see {@link boxHeight})
+	 * - `'top'` means that the menu should be placed to the bottom of y coordinate (the menu should be attached by its bottom to y coordinate)
+	 * - `'bottom'` means that the menu should be placed above y coordinate (the menu should be attached by its top to y coordinate)
+	 *
+	 * You may treat `undefined` as `'auto'`.
+	 */
+	attachToYBy?: "auto" | "auto-strict" | "top" | "bottom";
+	/**
+	 * The height of a box the context menu should avoid while calculating coordinates (see {@link attachToYBy}).
+	 *
+	 * You may treat `undefined` as `0`.
+	 */
+	boxHeight?: number;
 }
 export interface CreateButtonOptions {
 	align: "right" | "left";
+}
+export interface CreateContextMenuParams {
 }
 export interface CreateMultipointShapeOptions<TOverrides extends object> extends CreateShapeOptionsBase<TOverrides> {
 	shape?: Exclude<SupportedLineTools, "cursor" | "dot" | "arrow_cursor" | "eraser" | "measure" | "zoom">;
@@ -1245,7 +1281,13 @@ export interface IChartWidgetApi {
 	 * @deprecated Use Price Scale API instead
 	 */
 	getVisiblePriceRange(): VisiblePriceRange;
+	/**
+	 * @deprecated Use rightOffset from TimeScale API instead
+	 */
 	scrollPosition(): number;
+	/**
+	 * @deprecated Use defaultRightOffset from TimeScale API instead
+	 */
 	defaultScrollPosition(): number;
 	priceFormatter(): INumberFormatter;
 	chartType(): SeriesStyle;
@@ -1334,6 +1376,20 @@ export interface IChartingLibraryWidget {
 	navigationButtonsVisibility(): IWatchedValue<VisibilityType>;
 	paneButtonsVisibility(): IWatchedValue<VisibilityType>;
 	dateFormat(): IWatchedValue<DateFormat>;
+}
+export interface IContextMenuRenderer {
+	/**
+	 * Displays the menu at the position {@link pos}.
+	 */
+	show(pos: ContextMenuPosition): void;
+	/**
+	 * hides the menu.
+	 */
+	hide(): void;
+	/**
+	 * @returns Returns whether the menu is currently displayed.
+	 */
+	isShown(): boolean;
 }
 export interface IDatafeedChartApi {
 	getMarks?(symbolInfo: LibrarySymbolInfo, from: number, to: number, onDataCallback: GetMarksCallback<Mark>, resolution: ResolutionString): void;
@@ -1681,6 +1737,12 @@ export interface ITimeScaleApi {
 	 * This is to detect when the chart has been scrolled left/right
 	 */
 	rightOffsetChanged(): ISubscription<(rightOffset: number) => void>;
+	setRightOffset(offset: number): void;
+	setBarSpacing(newBarSpacing: number): void;
+	barSpacing(): number;
+	rightOffset(): number;
+	width(): number;
+	defaultRightOffset(): IWatchedValue<number>;
 }
 export interface ITimezoneApi {
 	availableTimezones(): readonly TimezoneInfo[];
