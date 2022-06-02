@@ -778,6 +778,7 @@ export interface ChartingLibraryWidgetOptions {
 	time_scale?: TimeScaleOptions;
 	custom_translate_function?: CustomTranslateFunction;
 	symbol_search_complete?: SymbolSearchCompleteOverrideFunction;
+	settings_overrides?: Overrides;
 }
 export interface CheckboxFieldMetaInfo extends CustomFieldMetaInfoBase {
 	inputType: "Checkbox";
