@@ -1451,7 +1451,7 @@ export interface IExternalDatafeed {
 export interface IExternalSaveLoadAdapter {
 	getAllCharts(): Promise<ChartMetaInfo[]>;
 	removeChart<T extends number | string>(id: T): Promise<void>;
-	saveChart(chartData: ChartData): Promise<number>;
+	saveChart(chartData: ChartData): Promise<string>;
 	getChartContent(chartId: number): Promise<string>;
 	getAllStudyTemplates(): Promise<StudyTemplateMetaInfo[]>;
 	removeStudyTemplate(studyTemplateInfo: StudyTemplateMetaInfo): Promise<void>;
