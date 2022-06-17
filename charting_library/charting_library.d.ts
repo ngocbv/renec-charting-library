@@ -843,6 +843,17 @@ export interface CreateButtonOptions {
 	align: "right" | "left";
 }
 export interface CreateContextMenuParams {
+	menuName: string;
+	detail?: {
+		type: "series";
+		id: string;
+	} | {
+		type: "study";
+		id: string | null;
+	} | {
+		type: "shape";
+		id: number | string | null;
+	};
 }
 export interface CreateMultipointShapeOptions<TOverrides extends object> extends CreateShapeOptionsBase<TOverrides> {
 	shape?: Exclude<SupportedLineTools, "cursor" | "dot" | "arrow_cursor" | "eraser" | "measure" | "zoom">;
