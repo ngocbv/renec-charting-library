@@ -859,7 +859,7 @@ export interface CreateMultipointShapeOptions<TOverrides extends object> extends
 	shape?: Exclude<SupportedLineTools, "cursor" | "dot" | "arrow_cursor" | "eraser" | "measure" | "zoom">;
 }
 export interface CreateShapeOptions<TOverrides extends object> extends CreateShapeOptionsBase<TOverrides> {
-	shape?: "arrow_up" | "arrow_down" | "flag" | "vertical_line" | "horizontal_line" | "long_position" | "short_position";
+	shape?: "arrow_up" | "arrow_down" | "flag" | "vertical_line" | "horizontal_line" | "long_position" | "short_position" | "icon";
 	ownerStudyId?: EntityId;
 }
 export interface CreateShapeOptionsBase<TOverrides extends object> {
