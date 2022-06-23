@@ -853,6 +853,9 @@ export interface CreateContextMenuParams {
 	} | {
 		type: "shape";
 		id: number | string | null;
+	} | {
+		type: "groupOfShapes";
+		id: string | null;
 	};
 }
 export interface CreateMultipointShapeOptions<TOverrides extends object> extends CreateShapeOptionsBase<TOverrides> {
