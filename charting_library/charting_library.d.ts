@@ -305,7 +305,7 @@ export declare type CustomTranslateFunction = (key: string, options?: TranslateO
 export declare type DateFormat = keyof typeof dateFormatFunctions;
 export declare type Direction = "buy" | "sell";
 export declare type DomeCallback = (data: DOMData) => void;
-export declare type DrawingEventType = "click" | "move" | "remove" | "hide" | "show";
+export declare type DrawingEventType = "click" | "move" | "remove" | "hide" | "show" | "create";
 export declare type DropdownUpdateParams = Partial<Omit<DropdownParams, "align">>;
 export declare type EditObjectDialogObjectType = "mainSeries" | "drawing" | "study" | "other";
 export declare type EmptyCallback = () => void;
