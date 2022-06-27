@@ -348,6 +348,7 @@ export declare type OnActionExecuteHandler = (action: IAction) => void;
 export declare type OnActionUpdateHandler = (action: IAction) => void;
 export declare type OnReadyCallback = (configuration: DatafeedConfiguration) => void;
 export declare type Order = PlacedOrder | BracketOrder;
+export declare type PageName = "watchlist_details_news" | "data_window" | "object_tree";
 export declare type PineJS = any;
 export declare type QuoteData = QuoteOkData | QuoteErrorData;
 export declare type QuotesCallback = (data: QuoteData[]) => void;
@@ -1368,6 +1369,7 @@ export interface IChartingLibraryWidget {
 	applyStudiesOverrides(overrides: object): void;
 	watchList(): Promise<IWatchListApi>;
 	news(): Promise<INewsApi>;
+	widgetbar(): Promise<IWidgetbarApi>;
 	activeChart(): IChartWidgetApi;
 	chartsCount(): number;
 	layout(): LayoutType;
@@ -1431,6 +1433,20 @@ export interface IDatafeedQuotesApi {
 }
 export interface IDelegate<TFunc extends Function> extends ISubscription<TFunc> {
 	fire: TFunc;
+}
+/**
+ * IDESTRØYÅBLE
+ * ┌────────────────┐
+ * │ ┏━━━━━┓        │
+ * │ ┃ ○ ○ ┃        │  ┏━━━━━┓           ┌╲╌╌╱╌┐
+ * │ ┃ ○ ○ ┃    x 1 │  ┃ ○ ○ ┃ destroy() ┊ ╲╱  ╵
+ * │ ┠─────┨        │  ┃ ○ ○ ┃  ╭───╯╲   ╷ ╱╲  ┊
+ * │ ┗━━━━━┛        │  ┠─────┨  ╰───╮╱   ├╱ ╌╲ ┤
+ * │ destroy()  x 1 │  ┗━━━━━┛           └ ╌╌ ╌┘
+ * └────────────────┘
+ */
+export interface IDestroyable {
+	destroy(): void;
 }
 export interface IDropdownApi {
 	applyOptions(options: DropdownUpdateParams): void;
@@ -1794,6 +1810,11 @@ export interface IWatchedValue<T> extends IWatchedValueReadonly<T>, IObservableV
 export interface IWatchedValueReadonly<T> extends IObservableValueReadOnly<T> {
 	subscribe(callback: (value: T) => void, options?: WatchedValueSubscribeOptions): void;
 	unsubscribe(callback?: ((value: T) => void) | null): void;
+}
+export interface IWidgetbarApi extends IDestroyable {
+	showPage(pageName: PageName): void;
+	hidePage(pageName: PageName): void;
+	isPageVisible(pageName: PageName): boolean;
 }
 export interface InitialSettingsMap {
 	[key: string]: string;
